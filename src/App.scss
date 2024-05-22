@@ -1,8 +1,17 @@
-.App {
-  main {
+body {
+  font-family: "Poppins", sans-serif;
+  .dark {
+    background: #121212;
+    padding: 20px 40px 40px 40px;
   }
 }
-.dark {
-  background: #121212;
-  padding: 20px 40px 40px 40px;
+
+@media (max-width: 768px) {
+  body {
+    font-family: "Poppins", sans-serif;
+    .dark {
+      background: #121212;
+      padding: 0 20px;
+    }
+  }
 }

@@ -33,7 +33,7 @@ function ImportantTeaserBlock() {
               <p>{teaser.field_date}</p>
             </div>
             <div className="important-teaser-title">
-              <h1>{teaser.title_1}</h1>
+              <h2>{teaser.title_1}</h2>
             </div>
             <div className="important-teaser-body">
               <h3>{teaser.body}</h3>

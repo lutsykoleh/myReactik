@@ -23,7 +23,7 @@ export default function OtherTeasers() {
       {OtherTeasers.map((OtherTeasers) => {
         return (
           <div className="other-teaser row">
-            <div className="other-teaser-block-1 col-lg-5 col-md-3">
+            <div className="other-teaser-block-1 col-lg-5 col-md-3 col-sm-5 col-5 smnone">
               <div className="other-teaser-image">
                 <img src={`${host}${OtherTeasers.field_image_1}`}></img>
               </div>
@@ -33,7 +33,7 @@ export default function OtherTeasers() {
                 <p>{OtherTeasers.field_date}</p>
               </div>
               <div className="other-teaser-title">
-                <p>{OtherTeasers.title_1}</p>
+                <h3>{OtherTeasers.title_1}</h3>
               </div>
             </div>
           </div>
