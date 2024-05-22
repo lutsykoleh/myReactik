@@ -1,8 +1,18 @@
 body {
   font-family: "Poppins", sans-serif;
+
+  .container {
+    max-width: 1280px;
+    padding: 0;
+  }
+
   .dark {
     background: #121212;
     padding: 20px 40px 40px 40px;
+  }
+  .whitearea {
+    background: #ffffff;
+    padding: 60px 40px 40px 40px;
   }
 }
 
