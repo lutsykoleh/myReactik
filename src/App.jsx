@@ -2,6 +2,7 @@ import React from "react";
 import ImportantTeaserBlock from "./Components/Teaser/importantTeaser";
 import OtherTeasers from "./Components/Teaser/otherTeasers";
 import FirstSlider from "./Components/FirstSlider/FirstSlider";
+import FirstStatic from "./Components/FirstStatic/FirstStatic";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 
@@ -11,7 +12,7 @@ function App() {
       <div className="container">
         <header className="App-header"></header>
         <main>
-          <div className="dark">
+          <div className="dark-type-1">
             <div className="row teaser-wrap">
               <ImportantTeaserBlock />
               <OtherTeasers />
@@ -19,6 +20,9 @@ function App() {
           </div>
           <div className="whitearea">
             <FirstSlider />
+          </div>
+          <div className="dark-type-2">
+            <FirstStatic />
           </div>
         </main>
       </div>
