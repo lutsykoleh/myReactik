@@ -3,6 +3,7 @@ import ImportantTeaserBlock from "./Components/Teaser/importantTeaser";
 import OtherTeasers from "./Components/Teaser/otherTeasers";
 import FirstSlider from "./Components/FirstSlider/FirstSlider";
 import FirstStatic from "./Components/FirstStatic/FirstStatic";
+import EditorChoise from "./Components/EditorChoise/EditorChoise";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 
@@ -24,6 +25,7 @@ function App() {
           <div className="dark-type-2">
             <FirstStatic />
           </div>
+          <EditorChoise />
         </main>
       </div>
     </div>
