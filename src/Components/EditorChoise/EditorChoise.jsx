@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 import Slider from "react-slick";
+import DOMPurify from "dompurify";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./EditorChoise.scss";
@@ -28,6 +29,15 @@ export default function EditorChoise() {
           dots: true,
         },
       },
+      {
+        breakpoint: 440,
+        settings: {
+          slidesToShow: 1,
+          adaptiveHeight: true,
+          infinite: true,
+          dots: false,
+        },
+      },
     ],
   };
 
@@ -47,20 +57,31 @@ export default function EditorChoise() {
       <h2 className="editor-choise-title">Pilihan editor</h2>
       <div className="editor-choise-slider">
         <Slider {...settings}>
-          {EditorChoise.map((EditorChoise) => {
+          {EditorChoise.map((editorItem, index) => {
             return (
-              <div className="editor-choise-slider-item">
+              <div className="editor-choise-slider-item" key={index}>
                 <div className="editor-choise-slider-item__image">
-                  <img src={`${host}${EditorChoise.field_image_1}`}></img>
+                  <img
+                    src={`${host}${editorItem.field_image_1}`}
+                    alt="Editor Choice"
+                  ></img>
                 </div>
                 <div className="editor-choise-slider-item__date">
-                  <p>{EditorChoise.field_date}</p>
+                  <p>{editorItem.field_date}</p>
                 </div>
                 <div className="editor-choise-slider-item__title">
-                  <h3>{EditorChoise.title_1}</h3>
+                  <h3
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(editorItem.title_1),
+                    }}
+                  ></h3>
                 </div>
                 <div className="editor-choise-slider-item__body">
-                  <h3>{EditorChoise.body}</h3>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(editorItem.body),
+                    }}
+                  ></div>
                 </div>
               </div>
             );

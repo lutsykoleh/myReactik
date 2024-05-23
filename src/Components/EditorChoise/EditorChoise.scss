@@ -1,5 +1,5 @@
 .editor-choise {
-  .editor-choise-title {
+  &-title {
     color: #121212;
     border-bottom: 0px solid #222222;
     padding: 0px 0px 0px 0px;
@@ -11,43 +11,118 @@
     margin-bottom: 40px;
     opacity: 0.3;
   }
-  .editor-choise-slider {
-    .editor-choise-slider-item {
-      .editor-choise-slider-item__image {
+
+  &-slider {
+    .slick-slide {
+      padding: 0 27px;
+    }
+
+    .slick-list {
+      margin: 0 -27px;
+    }
+    &-item {
+      &__image {
         img {
           width: 100%;
           height: auto;
-          max-height: 195.51px;
         }
       }
-      .editor-choise-slider-item__date {
+      &__date {
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 11px;
+        color: #000000;
+        opacity: 0.5;
+        letter-spacing: 0.2;
+        padding: 16px 0px 10px;
         p {
-          font-weight: normal;
-          font-size: 11px;
-          line-height: 11px;
-          color: #000000;
-          opacity: 0.5;
-          letter-spacing: 0.2;
-          padding: 16px 0px 10px;
+          margin: 0;
         }
       }
-      .editor-choise-slider-item__title {
+      &__title {
         h3 {
-          font-size: 22px;
-          line-height: 30px;
-          letter-spacing: 0.3px;
-          font-weight: 600;
+          a {
+            font-size: 22px;
+            line-height: 30px;
+            letter-spacing: 0.3px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1a1b1f;
+          }
         }
       }
-      .editor-choise-slider-item__body {
-        h3 {
+      &__body {
+        p {
           font-size: 14px;
           line-height: 22px;
           letter-spacing: 0.3px;
           opacity: 0.7;
           padding-top: 20px;
+          color: #1a1b1f;
         }
       }
     }
   }
 }
+
+@media (max-width: 992px) {
+  .editor-choise {
+    &-slider {
+      .slick-slide {
+        padding: 0;
+      }
+      .slick-list {
+        margin: 0;
+      }
+      &-item {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-choise {
+    &-title {
+      margin-bottom: 28px;
+    }
+
+    &-slider {
+      &-item {
+        &__title {
+          h3 {
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 0.3px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 440px) {
+//   .editor-choise {
+//     &-slider {
+//       &-item {
+//         &__title {
+//           h3 {
+//             a {
+//               font-size: 16px;
+//               line-height: 24px;
+//               letter-spacing: 0;
+//               margin-bottom: 0;
+//             }
+//           }
+//         }
+//         &__body {
+//           p {
+//             font-size: 12px;
+//             padding-top: 0px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

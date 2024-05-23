@@ -25,7 +25,9 @@ function App() {
           <div className="dark-type-2">
             <FirstStatic />
           </div>
-          <EditorChoise />
+          <div className="whitearea">
+            <EditorChoise />
+          </div>
         </main>
       </div>
     </div>
