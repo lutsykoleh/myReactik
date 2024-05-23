@@ -1,5 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #ececec;
 
   .container {
     max-width: 1280px;
@@ -20,6 +21,11 @@ body {
     background: #ffffff;
     padding: 60px 40px 40px 40px;
   }
+
+  .yellow-area {
+    background: #ffd335;
+    padding: 20px 40px 0px 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -29,6 +35,11 @@ body {
     .dark-type-2 {
       background: #121212;
       padding: 0 20px;
+    }
+
+    .whitearea {
+      background: #ffffff;
+      padding: 40px 25px;
     }
   }
 }

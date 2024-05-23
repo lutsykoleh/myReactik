@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import DOMPurify from "dompurify";
 import "./FirstStatic.scss";
 
 const src =
@@ -27,7 +28,11 @@ function FirstStatic() {
           <h2>{statics.field_title}</h2>
         </div>
         <div className="first-static-col-1__body">
-          <h3>{statics.body?.processed}</h3>
+          <h3
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(statics.body?.processed),
+            }}
+          ></h3>
         </div>
         <div className="first-static-col-1__button">
           <a

@@ -1,4 +1,4 @@
-.editor-choise {
+.latest-article {
   &-title {
     color: #121212;
     border-bottom: 0px solid #222222;
@@ -12,21 +12,15 @@
     opacity: 0.3;
   }
 
-  &-slider {
-    .slick-slide {
-      padding: 0 27px;
-    }
-
-    .slick-list {
-      margin: 0 -27px;
-    }
-    &-item {
+  &-items {
+    .latest-article-item {
       &__image {
         img {
           width: 100%;
           height: auto;
         }
       }
+
       &__date {
         font-weight: normal;
         font-size: 11px;
@@ -35,10 +29,12 @@
         opacity: 0.5;
         letter-spacing: 0.2;
         padding: 16px 0px 10px;
+
         p {
           margin: 0;
         }
       }
+
       &__title {
         h3 {
           a {
@@ -51,6 +47,7 @@
           }
         }
       }
+
       &__body {
         p {
           font-size: 14px;
@@ -66,23 +63,15 @@
 }
 
 @media (max-width: 992px) {
-  .editor-choise {
-    &-slider {
-      .slick-slide {
-        padding: 0;
-      }
-      .slick-list {
-        margin: 0;
-      }
-      &-item {
-        padding: 10px;
-      }
+  .latest-article {
+    &-item {
+      padding: 10px;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .editor-choise {
+  .latest-article {
     &-title {
       margin-bottom: 28px;
     }
@@ -103,7 +92,7 @@
 }
 
 @media (max-width: 440px) {
-  .editor-choise {
+  .latest-article {
     &-slider {
       &-item {
         &__title {
