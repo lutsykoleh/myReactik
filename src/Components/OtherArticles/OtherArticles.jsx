@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DOMPurify from "dompurify";
+import "./OtherArticles.scss";
 
 const src = "http://91.107.217.207/latest-articles?_format=json";
 const host = "http://91.107.217.207";
@@ -21,12 +22,12 @@ export default function OtherArticles() {
 
   return (
     <div className="other-articles">
-      <h2 className="other-articles-title">ARTIKEL TERBARU</h2>
+      <h2 className="other-articles-title">Artikel Lainnya</h2>
       <div className="other-article-items row">
         {OtherArticles.map((OtherArticles, index) => {
           return (
             <div className="other-article-item" key={index}>
-              <div className="other-acticle-item-block-1 col-lg-7 col-8">
+              <div className="other-article-item-block-1 col-lg-7 col-8">
                 <div className="other-article-item__date">
                   <p>{OtherArticles.field_date}</p>
                 </div>
