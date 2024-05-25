@@ -1,14 +1,14 @@
-.first-slider {
+.industrial-design {
   &-title {
-    color: #121212;
-    padding: 0px;
+    padding: 0;
     font-size: 16px;
     line-height: 26px;
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: 600;
+    opacity: 0.3;
     letter-spacing: 1px;
     margin-bottom: 40px;
-    opacity: 0.3;
   }
 
   &-items {
@@ -19,31 +19,47 @@
     .slick-list {
       margin: 0 -27px;
     }
-    .first-slider-item {
-      .first-slider-item__image {
+    .industrial-design-item {
+      &__image {
         img {
           width: 100%;
           height: auto;
         }
       }
-      .first-slider-item__date {
-        font-weight: normal;
-        font-size: 11px;
-        line-height: 11px;
-        color: #000000;
-        opacity: 0.5;
-        letter-spacing: 0.2;
+      &__date {
         padding: 16px 0px 10px;
         p {
-          margin: 0;
+          color: #ffffff;
+          opacity: 0.3;
+          font-size: 14px;
+          line-height: 15px;
         }
       }
-      .first-slider-item__title {
+      &__title {
         h3 {
-          font-size: 22px;
-          line-height: 30px;
+          font-size: 25px;
+          line-height: 35px;
+          color: #ffffff;
+          opacity: 0.8;
           letter-spacing: 0.3px;
           font-weight: 600;
+          a {
+            color: #ffffff;
+            opacity: 0.8;
+            text-decoration: none;
+          }
+        }
+      }
+
+      &__body {
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0.3px;
+          font-weight: 200;
+          opacity: 0.5;
+          color: #ffffff;
+          padding-top: 20px;
         }
       }
     }
@@ -51,9 +67,9 @@
 }
 
 @media (max-width: 992px) {
-  .first-slider {
+  .industrial-design {
     &-items {
-      .slick-slide {
+      .slick-slider {
         padding: 0;
       }
       .slick-list {
@@ -67,13 +83,13 @@
 }
 
 @media (max-width: 768px) {
-  .first-slider {
+  .industrial-design {
     &-title {
       margin-bottom: 28px;
     }
 
     &-items {
-      .first-slider-item {
+      .industrial-design-item {
         .first-slider-item__title {
           h3 {
             font-size: 18px;

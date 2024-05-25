@@ -47,9 +47,9 @@ export default function FirstSlider() {
       <h2 className="first-slider-title">Tutorial design</h2>
       <div className="first-slider-items">
         <Slider {...settings}>
-          {FirstSlider.map((FirstSlider) => {
+          {FirstSlider.map((FirstSlider, index) => {
             return (
-              <div className="first-slider-item ">
+              <div className="first-slider-item" key={index}>
                 <div className="first-slider-item__image">
                   <img src={`${host}${FirstSlider.field_image_1}`}></img>
                 </div>
