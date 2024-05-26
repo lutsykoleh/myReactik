@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Components/Header/Header";
 import ImportantTeaserBlock from "./Components/Teaser/ImportantTeaser";
 import OtherTeasers from "./Components/Teaser/OtherTeasers";
 import FirstSlider from "./Components/FirstSlider/FirstSlider";
@@ -20,7 +21,9 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <header className="App-header"></header>
+        <header className="App-header">
+          <Header />
+        </header>
         <main>
           <div className="dark-type-1">
             <div className="row teaser-wrap">
