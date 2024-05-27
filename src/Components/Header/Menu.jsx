@@ -23,7 +23,7 @@ export default function Menu() {
         {MenuLink.map((MenuLink, index) => {
           return (
             <li className="menu__item nav-item" key={index}>
-              <a href="{MenuLink.link.uri}" className="menu__link">
+              <a href={MenuLink.link.uri} className="menu__link">
                 {MenuLink.title}
               </a>
             </li>

@@ -15,6 +15,10 @@
       z-index: 1000;
     }
 
+    #navbarNav {
+      transition: none;
+    }
+
     .collapse.navbar-collapse.show {
       position: absolute;
       padding-top: 70px;
@@ -25,11 +29,15 @@
       background-color: #fff;
       z-index: 999;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
 
       .menu {
+        padding-top: 270px;
+        background-color: #fff;
+        transition: all 1s ease-out;
         .menu__item {
           text-decoration: none;
           color: rgba(0, 0, 0, 0.6);
@@ -58,26 +66,66 @@
           }
         }
       }
+
+      .social-menu {
+        background-color: #fff;
+        width: 100%;
+        &__list {
+          .social-menu__item {
+            text-align: left;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 32px;
+            line-height: 42px;
+            padding: 32px 0px 32px 32px;
+            display: block;
+            margin: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ffffff;
+            .social-menu__link {
+              text-decoration: none;
+              color: rgba(0, 0, 0, 0.6);
+              font-size: 32px;
+              line-height: 42px;
+              padding-left: 50px;
+              font-weight: 400;
+              text-transform: capitalize;
+            }
+
+            &::before {
+              position: absolute;
+              text-align: center;
+              content: "↳";
+              color: rgba(0, 0, 0, 0.6);
+              font-size: 32px;
+              line-height: 42px;
+            }
+          }
+        }
+      }
     }
   }
 
   .collapse.navbar-collapse {
     justify-content: space-between;
+    transition: none;
     .menu {
       width: 100%;
-      .menu__item {
-        .menu__link {
-          text-decoration: none;
-          padding-top: 9px;
-          padding-bottom: 9px;
-          font-size: 12px;
-          line-height: 20px;
-          font-weight: 500;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          margin-right: 40px;
-          color: #ffffff;
-          opacity: 0.5;
+      .menu__list {
+        margin-top: 240px;
+        .menu__item {
+          .menu__link {
+            text-decoration: none;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            font-size: 12px;
+            line-height: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-right: 40px;
+            color: #ffffff;
+          }
         }
       }
     }
