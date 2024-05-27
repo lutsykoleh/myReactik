@@ -20,7 +20,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="logo">
+    <div className="logo navbar-brand">
       <div className="logo__image">
         <img
           src={`${host}${Logo.field_image?.uri?.url}`}

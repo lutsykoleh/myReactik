@@ -13,7 +13,6 @@ export default function Menu() {
       .get(src)
       .then((response) => {
         setMenuLink(response.data.data.field_social_links);
-        console.log(response.data.data.field_social_links);
       })
       .catch((error) => {
         console.log(error);
@@ -22,10 +21,10 @@ export default function Menu() {
 
   return (
     <div className="social-menu">
-      <ul className="social-menu__list">
+      <ul className="social-menu__list navbar-nav">
         {MenuLink.map((MenuLink, index) => {
           return (
-            <li className="social-menu__item" key={index}>
+            <li className="social-menu__item nav-item" key={index}>
               <a className="social-menu__link" href={MenuLink.field_link.uri}>
                 <img
                   className="social-menu__icon"
