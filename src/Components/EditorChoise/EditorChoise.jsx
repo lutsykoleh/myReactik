@@ -8,38 +8,39 @@ import "slick-carousel/slick/slick-theme.css";
 import "./EditorChoise.scss";
 
 const src = "http://91.107.217.207/editors-choice?_format=json";
-const host = "http://91.107.217.207";
+const host = import.meta.env.VITE_API_HOST;
+
+const sliderSettings = {
+  dots: false,
+  arrows: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1000,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 440,
+      settings: {
+        slidesToShow: 1,
+        adaptiveHeight: true,
+      },
+    },
+  ],
+};
 
 export default function EditorChoise() {
-  const [EditorChoise, setEditorChoise] = useState([]);
-
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 440,
-        settings: {
-          slidesToShow: 1,
-          adaptiveHeight: true,
-          infinite: true,
-          dots: false,
-        },
-      },
-    ],
-  };
+  const [editorChoise, setEditorChoise] = useState([]);
 
   useEffect(() => {
     axios
@@ -56,14 +57,17 @@ export default function EditorChoise() {
     <div className="editor-choise">
       <h2 className="editor-choise-title">Pilihan editor</h2>
       <div className="editor-choise-slider">
-        <Slider {...settings}>
-          {EditorChoise.map((editorItem, index) => {
+        <Slider {...sliderSettings}>
+          {editorChoise.map((editorItem, index) => {
             return (
               <div className="editor-choise-slider-item" key={index}>
                 <div className="editor-choise-slider-item__image">
                   <img
                     src={`${host}${editorItem.field_image_1}`}
-                    alt="Editor Choice"
+                    alt={
+                      editorItem.title?.replace(/(<([^>]+)>)/gi, "") ||
+                      "Editor choise image"
+                    }
                   ></img>
                 </div>
                 <div className="editor-choise-slider-item__date">

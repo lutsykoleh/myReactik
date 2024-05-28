@@ -21,17 +21,17 @@ body {
     }
   }
 
-  .dark-type-1 {
+  .dark-area-1 {
     background: #121212;
     padding: 20px 40px 40px 40px;
   }
 
-  .dark-type-2 {
+  .dark-area-2 {
     background: #121212;
     padding: 20px 40px 0px 40px;
   }
 
-  .whitearea {
+  .white-area {
     background: #ffffff;
     padding: 60px 40px 40px 40px;
   }
@@ -75,8 +75,8 @@ body {
 @media (max-width: 768px) {
   body {
     font-family: "Poppins", sans-serif;
-    .dark-type-1,
-    .dark-type-2 {
+    .dark-area-1,
+    .dark-area-2 {
       background: #121212;
       padding: 0 20px;
     }
@@ -89,9 +89,12 @@ body {
       }
     }
 
-    .whitearea {
-      background: #ffffff;
-      padding: 40 25px;
+    .white-area {
+      padding: 20px 25px;
+    }
+
+    .yellow-area {
+      padding: 20px;
     }
 
     .banner {
@@ -99,6 +102,13 @@ body {
         margin: 30px -20px;
         padding: 0;
       }
+    }
+
+    .right-side-footer {
+      background-color: #f5f6f8;
+      margin-right: -25px;
+      margin-left: -25px;
+      padding: 20px;
     }
   }
 }

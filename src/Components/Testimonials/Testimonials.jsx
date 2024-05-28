@@ -4,7 +4,7 @@ import DOMPurify from "dompurify";
 import "./Testimonials.scss";
 
 const src = "http://91.107.217.207/testimonials?_format=json";
-const host = "http://91.107.217.207";
+const host = import.meta.env.VITE_API_HOST;
 
 export default function Testimonials() {
   const [Testimonials, setTestimonials] = useState([]);
@@ -31,7 +31,10 @@ export default function Testimonials() {
                 <div className="other-article-item__image">
                   <img
                     src={`${host}${Testimonials.field_image_1}`}
-                    alt="Other Article"
+                    alt={
+                      Testimonials.title_1?.replace(/(<([^>]+)>)/gi, "") ||
+                      "Testimonial image"
+                    }
                   ></img>
                 </div>
               </div>

@@ -5,16 +5,16 @@ import "./FirstStatic.scss";
 
 const src =
   "http://91.107.217.207/jsonapi/block_content/w_full_block/cf972415-4ba6-4d47-ae43-11798f4b8e2a?resourceVersion=id%3A3&include=field_image";
-const host = "http://91.107.217.207";
+const host = import.meta.env.VITE_API_HOST;
 
 function FirstStatic() {
-  const [statics, setStatics] = useState({});
+  const [staticData, setStaticData] = useState({});
 
   useEffect(() => {
     axios
       .get(src)
       .then((response) => {
-        setStatics(response.data.data);
+        setStaticData(response.data.data);
       })
       .catch((error) => {
         console.error("Error fetching the teaser:", error);
@@ -25,30 +25,33 @@ function FirstStatic() {
     <div className="first-static row">
       <div className="first-static-col-1 col-md-6">
         <div className="first-static-col-1__title">
-          <h2>{statics.field_title}</h2>
+          <h2>{staticData.field_title}</h2>
         </div>
         <div className="first-static-col-1__body">
           <h3
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(statics.body?.processed),
+              __html: DOMPurify.sanitize(staticData.body?.processed),
             }}
           ></h3>
         </div>
         <div className="first-static-col-1__button">
           <a
-            href={statics.field_link?.uri}
+            href={staticData.field_link?.uri}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {statics.field_link?.title}
+            {staticData.field_link?.title}
           </a>
         </div>
       </div>
       <div className="first-static-col-2 col-md-6">
         <div className="first-static-col-2__image">
           <img
-            src={`${host}${statics.field_image?.uri?.url}`}
-            alt={statics.field_title || "Teaser image"}
+            src={`${host}${staticData.field_image?.uri?.url}`}
+            alt={
+              staticData.field_title?.replace(/(<([^>]+)>)/gi, "") ||
+              "Static block image"
+            }
           />
         </div>
       </div>

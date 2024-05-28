@@ -3,6 +3,7 @@
   padding: 20px 40px 0 !important;
   .container-fluid {
     .logo {
+      margin-right: 40px;
       .logo__image {
         img {
           width: 40px;
@@ -10,15 +11,84 @@
       }
     }
 
+    // styling of the burger menu button
     .navbar-toggler {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      transition: 0.5s ease-in-out;
       border: none;
       z-index: 1000;
+
+      .toggler-icon {
+        position: absolute;
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: #fff;
+        border-radius: 1px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+
+        .middle-bar {
+          margin-top: 0px;
+        }
+      }
+
+      span {
+        margin: 0;
+        padding: 0;
+      }
+
+      // if the burger menu is inactive
+      &[aria-expanded="false"] {
+        .top-bar {
+          margin-top: -10px;
+          transform: rotate(0deg);
+        }
+
+        .mid-bar {
+          opacity: 1;
+        }
+
+        .bottom-bar {
+          margin-top: 10px;
+          transform: rotate(0deg);
+        }
+      }
+
+      // if the burger menu is active
+      &[aria-expanded="true"] {
+        .toggler-icon {
+          background: #000;
+        }
+        .top-bar {
+          margin-top: 0px;
+          transform: rotate(135deg);
+        }
+        .mid-bar {
+          opacity: 0;
+        }
+        .bottom-bar {
+          margin-top: 0px;
+          transform: rotate(-135deg);
+        }
+      }
+
+      &:focus,
+      &:active {
+        outline: none;
+        box-shadow: none;
+      }
     }
 
     #navbarNav {
       transition: none;
     }
 
+    // styling the menu into a burger menu
     .collapse.navbar-collapse.show {
       position: absolute;
       padding-top: 70px;
@@ -38,31 +108,47 @@
         padding-top: 270px;
         background-color: #fff;
         transition: all 1s ease-out;
-        .menu__item {
-          text-decoration: none;
-          color: rgba(0, 0, 0, 0.6);
-          font-size: 32px;
-          line-height: 42px;
-          padding: 32px 0px 32px 32px;
-          display: block;
-          border-top: 1px solid rgba(0, 0, 0, 0.1);
-          border-left: 4px solid #ffffff;
-          .menu__link {
+
+        .menu__list {
+          margin-top: 70px;
+
+          .menu__item {
+            text-decoration: none;
             color: rgba(0, 0, 0, 0.6);
             font-size: 32px;
             line-height: 42px;
-            padding-left: 50px;
-            font-weight: 400;
-            text-transform: capitalize;
+            padding: 32px 0px 32px 32px;
+            display: block;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ffffff;
+
+            .menu__link {
+              color: rgba(0, 0, 0, 0.6);
+              font-size: 32px;
+              line-height: 42px;
+              padding-left: 50px;
+              font-weight: 400;
+              text-transform: capitalize;
+              opacity: 1;
+            }
+
+            &::before {
+              position: absolute;
+              text-align: center;
+              content: "↳";
+              color: rgba(0, 0, 0, 0.6);
+              font-size: 32px;
+              line-height: 42px;
+            }
           }
 
-          &::before {
-            position: absolute;
-            text-align: center;
-            content: "↳";
-            color: rgba(0, 0, 0, 0.6);
-            font-size: 32px;
-            line-height: 42px;
+          // if the menu item is active
+          .menu__item.active {
+            border-left: 4px solid #121212;
+
+            .menu__link {
+              color: #121212;
+            }
           }
         }
       }
@@ -106,13 +192,13 @@
     }
   }
 
+  // styling the desctop menu
   .collapse.navbar-collapse {
     justify-content: space-between;
     transition: none;
     .menu {
       width: 100%;
       .menu__list {
-        margin-top: 240px;
         .menu__item {
           .menu__link {
             text-decoration: none;
@@ -125,6 +211,14 @@
             text-transform: uppercase;
             margin-right: 40px;
             color: #ffffff;
+            opacity: 0.5;
+          }
+        }
+
+        .menu__item.active {
+          .menu__link {
+            color: #fff;
+            opacity: 1;
           }
         }
       }

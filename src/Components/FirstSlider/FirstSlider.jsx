@@ -7,29 +7,30 @@ import "slick-carousel/slick/slick-theme.css";
 import "./FirstSlider.scss";
 
 const src = "http://91.107.217.207/design-tutorials-first?_format=json";
-const host = "http://91.107.217.207";
+const host = import.meta.env.VITE_API_HOST;
 
-export default function FirstSlider() {
-  const [FirstSlider, setFirstSlider] = useState([]);
-
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
+const sliderSettings = {
+  dots: false,
+  arrows: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1000,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
       },
-    ],
-  };
+    },
+  ],
+};
+export default function FirstSlider() {
+  const [firstSlider, setFirstSlider] = useState([]);
 
   useEffect(() => {
     axios
@@ -46,18 +47,24 @@ export default function FirstSlider() {
     <div className="first-slider">
       <h2 className="first-slider-title">Tutorial design</h2>
       <div className="first-slider-items">
-        <Slider {...settings}>
-          {FirstSlider.map((FirstSlider, index) => {
+        <Slider {...sliderSettings}>
+          {firstSlider.map((sliderItem, index) => {
             return (
               <div className="first-slider-item" key={index}>
                 <div className="first-slider-item__image">
-                  <img src={`${host}${FirstSlider.field_image_1}`}></img>
+                  <img
+                    src={`${host}${sliderItem.field_image_1}`}
+                    alt={
+                      sliderItem.title_1?.replace(/(<([^>]+)>)/gi, "") ||
+                      "Slider image"
+                    }
+                  ></img>
                 </div>
                 <div className="first-slider-item__date">
-                  <p>{FirstSlider.field_date}</p>
+                  <p>{sliderItem.field_date}</p>
                 </div>
                 <div className="first-slider-item__title">
-                  <h3>{FirstSlider.title_1}</h3>
+                  <h3>{sliderItem.title_1}</h3>
                 </div>
               </div>
             );

@@ -4,10 +4,10 @@ import DOMPurify from "dompurify";
 import "./LatestArticle.scss";
 
 const src = "http://91.107.217.207/latest-articles?_format=json";
-const host = "http://91.107.217.207";
+const host = import.meta.env.VITE_API_HOST;
 
 export default function LatestArticle() {
-  const [LatestArticle, setLatestArticle] = useState([]);
+  const [latestArticle, setLatestArticle] = useState([]);
 
   useEffect(() => {
     axios
@@ -24,7 +24,7 @@ export default function LatestArticle() {
     <div className="latest-article">
       <h2 className="latest-article-title">ARTIKEL TERBARU</h2>
       <div className="latest-article-items row">
-        {LatestArticle.map((article, index) => {
+        {latestArticle.map((article, index) => {
           return (
             <div
               className="latest-article-item col-md-6 col-lg-4 col-sm-6"
@@ -33,7 +33,10 @@ export default function LatestArticle() {
               <div className="latest-article-item__image">
                 <img
                   src={`${host}${article.field_image_1}`}
-                  alt="Latest Article"
+                  alt={
+                    article.title_1?.replace(/(<([^>]+)>)/gi, "") ||
+                    "Latest article image"
+                  }
                 ></img>
               </div>
               <div className="latest-article-item__date">

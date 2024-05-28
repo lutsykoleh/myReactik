@@ -13,7 +13,7 @@ export default function Header({ onBurgerMenuClick }) {
       <div className="container-fluid">
         <Logo />
         <button
-          class="navbar-toggler"
+          className="navbar-toggler collapsed"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -21,9 +21,11 @@ export default function Header({ onBurgerMenuClick }) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="toggler-icon top-bar"></span>
+          <span className="toggler-icon mid-bar"></span>
+          <span className="toggler-icon bottom-bar"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse" id="navbarNav">
           <Menu />
           <SocialLink isMobile={isMobile} />
         </div>
