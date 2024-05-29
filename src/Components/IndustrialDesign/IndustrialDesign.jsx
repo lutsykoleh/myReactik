@@ -29,6 +29,13 @@ var sliderSettings = {
         autoplaySpeed: 1000,
       },
     },
+    {
+      breakpoint: 440,
+      settings: {
+        slidesToShow: 1,
+        adaptiveHeight: true,
+      },
+    },
   ],
 };
 

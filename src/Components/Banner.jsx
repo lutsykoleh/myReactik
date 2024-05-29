@@ -24,7 +24,7 @@ export default function Banner() {
       <div className="banner__image">
         <img
           src={`${host}${banner.field_image?.uri?.url}`}
-          alt={banner.alt || "Teaser image"}
+          alt={banner.alt || "Banner image"}
         />
       </div>
     </div>
