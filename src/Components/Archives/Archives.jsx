@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import DOMPurify from "dompurify";
+import { fetchData } from "/src/services/apiService";
 import "./Archives.scss";
 
-const src = "http://91.107.217.207/archives?_format=json";
+const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/archives?_format=json`;
 
 export default function Archives() {
   const [archives, setArchives] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setArchives(data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setArchives(data);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

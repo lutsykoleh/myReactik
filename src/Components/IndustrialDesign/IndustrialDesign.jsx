@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import DOMPurify from "dompurify";
+import { fetchData } from "/src/services/apiService";
 import "./IndustrialDesign.scss";
 
-const src = "http://91.107.217.207/latest-articles?_format=json";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/latest-articles?_format=json`;
 
 var sliderSettings = {
   dots: false,
@@ -43,14 +43,16 @@ export default function IndustialDesign() {
   const [industialDesign, setIndustialDesign] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setIndustialDesign(data.data);
-      })
-      .catch((error) => {
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setIndustialDesign(data);
+      } catch (error) {
         console.log(error);
-      });
+      }
+    };
+
+    getData();
   }, []);
 
   return (

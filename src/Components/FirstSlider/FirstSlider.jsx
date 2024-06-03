@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./FirstSlider.scss";
 
-const src = "http://91.107.217.207/design-tutorials-first?_format=json";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/design-tutorials-first?_format=json`;
 
 const sliderSettings = {
   dots: false,
@@ -33,14 +33,14 @@ export default function FirstSlider() {
   const [firstSlider, setFirstSlider] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setFirstSlider(data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setFirstSlider(data);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

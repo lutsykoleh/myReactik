@@ -1,24 +1,23 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 import DOMPurify from "dompurify";
 import "./Teaser.scss";
 
-const src = "http://91.107.217.207/blog-articles-first?_format=json";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/blog-articles-first?_format=json`;
 
 function ImportantTeaserBlock() {
   const [importantTeaser, setImportantTeaser] = useState({});
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setImportantTeaser(data.data[0]);
-        console.log();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setImportantTeaser(data[0]);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 import DOMPurify from "dompurify";
 import "./Testimonials.scss";
 
-const src = "http://91.107.217.207/testimonials?_format=json";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/testimonials?_format=json`;
 
 export default function Testimonials() {
   const [Testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setTestimonials(data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setTestimonials(data);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

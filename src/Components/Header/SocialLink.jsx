@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 
-const src =
-  "http://91.107.217.207/jsonapi/block_content/social_links/da13c4ff-fea5-48e6-bedb-7ede57c8f29d?resourceVersion=id%3A2&include=field_social_links.field_icon_svg";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/jsonapi/block_content/social_links/da13c4ff-fea5-48e6-bedb-7ede57c8f29d?resourceVersion=id%3A2&include=field_social_links.field_icon_svg`;
 
 export default function SocialLink({ isMobile }) {
   const [socialLinks, setSocialLinks] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((response) => {
-        setSocialLinks(response.data.data.field_social_links);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setSocialLinks(data.data.field_social_links);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

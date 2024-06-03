@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 import DOMPurify from "dompurify";
 import "./LatestArticle.scss";
 
-const src = "http://91.107.217.207/latest-articles?_format=json";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/latest-articles?_format=json`;
 
 export default function LatestArticle() {
   const [latestArticle, setLatestArticle] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setLatestArticle(data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setLatestArticle(data);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

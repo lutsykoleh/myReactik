@@ -1,24 +1,23 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 import DOMPurify from "dompurify";
 import "./FirstStatic.scss";
 
-const src =
-  "http://91.107.217.207/jsonapi/block_content/w_full_block/cf972415-4ba6-4d47-ae43-11798f4b8e2a?resourceVersion=id%3A3&include=field_image";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/jsonapi/block_content/w_full_block/cf972415-4ba6-4d47-ae43-11798f4b8e2a?resourceVersion=id%3A3&include=field_image`;
 
 function FirstStatic() {
   const [staticData, setStaticData] = useState({});
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((response) => {
-        setStaticData(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching the teaser:", error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setStaticData(data.data);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (

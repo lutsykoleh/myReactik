@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData } from "/src/services/apiService";
 
-const src = "http://91.107.217.207/blog-articles-second?_format=json";
 const host = import.meta.env.VITE_API_HOST;
+const src = `${host}/blog-articles-second?_format=json`;
 
 export default function OtherTeasers() {
   const [otherTeasers, setOtherTeasers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(src)
-      .then((data) => {
-        setOtherTeasers(data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getData = async () => {
+      try {
+        const data = await fetchData(src);
+        setOtherTeasers(data);
+      } catch (error) {}
+    };
+
+    getData();
   }, []);
 
   return (
