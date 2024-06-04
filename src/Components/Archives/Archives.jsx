@@ -27,9 +27,9 @@ export default function Archives() {
         {archives.map((archivesItem, index) => {
           return (
             <div className="archives-item" key={index}>
-              <div className="archives-item__date">
+              <time className="archives-item__date">
                 <p>{archivesItem.field_date}</p>
-              </div>
+              </time>
               <div className="archives-item__title">
                 <h3
                   dangerouslySetInnerHTML={{

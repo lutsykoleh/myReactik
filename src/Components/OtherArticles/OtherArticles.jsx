@@ -39,11 +39,11 @@ export default function OtherArticles() {
                   ></h3>
                 </div>
                 <div className="other-article-item__body">
-                  <div
+                  <p
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(otherArticleItem.body),
                     }}
-                  ></div>
+                  ></p>
                 </div>
               </div>
               <div className="other-article-item-block-2 col-lg-5 col-4">

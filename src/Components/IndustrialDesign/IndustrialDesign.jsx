@@ -85,11 +85,11 @@ export default function IndustialDesign() {
                   ></h3>
                 </div>
                 <div className="industrial-design-item__body">
-                  <div
+                  <p
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(IndustialDesignItem.body),
                     }}
-                  ></div>
+                  ></p>
                 </div>
               </div>
             );

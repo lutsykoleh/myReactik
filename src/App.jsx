@@ -25,7 +25,7 @@ function App() {
           <Header />
         </header>
         <main>
-          <div className="dark-area-1">
+          <section className="dark-area-1">
             <div className="page-title">
               <div className="page-title__svg">
                 <svg
@@ -54,25 +54,25 @@ function App() {
               <ImportantTeaserBlock />
               <OtherTeasers />
             </div>
-          </div>
-          <div className="white-area">
+          </section>
+          <section className="white-area">
             <FirstSlider />
-          </div>
-          <div className="dark-area-2">
+          </section>
+          <section className="dark-area-2">
             <FirstStatic />
-          </div>
-          <div className="white-area">
+          </section>
+          <section className="white-area">
             <EditorChoise />
-          </div>
-          <div className="yellow-area">
+          </section>
+          <section className="yellow-area">
             <SecondStatic />
-          </div>
-          <div className="white-area">
+          </section>
+          <section className="white-area">
             <LatestArticle />
-          </div>
-          <div className="dark-area-1">
+          </section>
+          <section className="dark-area-1">
             <IndustialDesign />
-          </div>
+          </section>
         </main>
         <footer>
           <div className="white-area">
@@ -80,13 +80,13 @@ function App() {
               <div className="col-lg-8">
                 <OtherArticles />
               </div>
-              <div className="col-lg-4">
+              <aside className="col-lg-4">
                 <div className="right-side-footer">
                   <Archives />
                   <Banner />
                   <Testimonials />
                 </div>
-              </div>
+              </aside>
             </div>
           </div>
         </footer>

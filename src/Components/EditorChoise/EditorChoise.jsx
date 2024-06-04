@@ -81,11 +81,11 @@ export default function EditorChoise() {
                   ></h3>
                 </div>
                 <div className="editor-choise-slider-item__body">
-                  <div
+                  <p
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(editorItem.body),
                     }}
-                  ></div>
+                  ></p>
                 </div>
               </div>
             );

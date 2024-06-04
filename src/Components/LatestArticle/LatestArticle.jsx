@@ -50,11 +50,11 @@ export default function LatestArticle() {
                 ></h3>
               </div>
               <div className="latest-article-item__body">
-                <div
+                <p
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(article.body),
                   }}
-                ></div>
+                ></p>
               </div>
             </div>
           );

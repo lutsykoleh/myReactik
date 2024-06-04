@@ -19,7 +19,7 @@ export default function Menu() {
   }, []);
 
   return (
-    <div className="menu">
+    <menu className="menu">
       <ul className="menu__list navbar-nav me-auto mb-2 mb-lg-0">
         {menuLink.map((menuItem, index) => {
           return (
@@ -31,6 +31,6 @@ export default function Menu() {
           );
         })}
       </ul>
-    </div>
+    </menu>
   );
 }
